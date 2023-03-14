@@ -87,3 +87,7 @@ Version 1.0.0
 - Hotkey to show the phrase selection window is Ctrl+Shift+L.
 - Phrases are copied to clipboard automatically when selected.
 Support for AutoHotkey v2 and later.
+
+Version 1.0.1
+- added splash screen and icon
+- compiled executable

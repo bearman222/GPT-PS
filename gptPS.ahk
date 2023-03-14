@@ -1,4 +1,5 @@
 #SingleInstance Force
+#Include splash.ahk
 #Include categories.ahk
 #Include Hotkeys.ahk
 #Include CategoryTab.ahk
