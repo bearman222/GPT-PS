@@ -4,7 +4,7 @@
 class CategoryTab {
     __New(parentGui, selectedCategory, tabIndex) {
         items := selectedCategory.Clone()
-        this.listBox := parentGui.Add("ListBox","R" . selectedCategory.Length . " W400", items)
+        this.listBox := parentGui.Add("ListBox","R" . selectedCategory.Length . " W480", items)
         this.handlers := ListBoxEventHandlers(this.listBox)
         this.selectedIndex := -1
         return this
