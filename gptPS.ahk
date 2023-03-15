@@ -24,9 +24,32 @@ tabControl := myGui.Add("Tab3",  , keycat)
     myGuiTabs.push(newTab)
 }
 
-; show the gui
+global isListBoxesShown := false
+
+; Show the GUI and enable the Escape hotkey
 ShowPhraseSelector() {
-    global myGui
+    global myGui, isListBoxesShown
     myGui.Show("AutoSize")
+    ; Enable the Escape hotkey when the window is shown
+    Hotkey "Esc", "On"
+    isListBoxesShown := true
 }
 
+; Close the GUI and disable the Escape hotkey
+ClosePhraseSelector() {
+    global myGui, isListBoxesShown
+    myGui.Minimize()
+    ; Disable the Escape hotkey when the window is closed
+    Hotkey "Esc", "Off"
+    isListBoxesShown := false
+}
+
+; Toggle the GUI
+TogglePhraseSelector() {
+    global isListBoxesShown
+    if (!isListBoxesShown) { 
+        ShowPhraseSelector()
+    } else {
+        ClosePhraseSelector()
+    }
+}
