@@ -59,4 +59,4 @@ SplashTimerFunc() {
     splashGui.Destroy()
 }
 
-ShowSplashScreen(splashquote[Random(1,splashquote.Length)], 5)
+ShowSplashScreen(splashquote[Random(1,splashquote.Length)], 2)
