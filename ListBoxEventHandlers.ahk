@@ -2,6 +2,7 @@
 ; Description: This file defines a class that adds event handlers for a ListBox control to submit the selected text to the clipboard and parent GUI.
 ; Author: B. Eskind
 ; Date: March 10, 2023
+#Include gptPS.ahk
 
 class ListBoxEventHandlers {
     ; Constructor that takes in a ListBox control and adds the event handlers.

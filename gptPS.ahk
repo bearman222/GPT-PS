@@ -12,7 +12,7 @@ global myGuiTabs := []
 
 keycat := []
 for key in categories {
-    keycat.InsertAt(0,key)
+    keycat.Push(key)
 }
 
 tabControl := myGui.Add("Tab3",  , keycat)

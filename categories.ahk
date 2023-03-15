@@ -16,7 +16,7 @@ categories := Map(
         "Refactor repeated code.",
         "Implement dependency injection.",
         "Improve error handling.",
-        "Explain the design pattern logic.",
+        "Explain the logic.",
         ],
     "PERFORMANCE", [
         "Improve performance.",
