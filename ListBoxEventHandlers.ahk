@@ -21,15 +21,10 @@ SubmitSelectedItem(eventInfo) {
         ; MsgBox ("nothing selected")
     } else {
         A_Clipboard := this.Text
-        ; Get a reference to the parent Gui of the ListBox control.
-        GuiObj  := this.Gui
-        ; Submit the parent Gui of the ListBox control.
-        GuiObj.Submit()
-        ; Wait for 1 second.
+        ClosePhraseSelector()
         Sleep 1000
         ; Send a Ctrl+V command to paste the selected text.
         Send("{Ctrl Down}v{Ctrl Up}")
-
         }
     }
 }
