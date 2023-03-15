@@ -9,7 +9,7 @@ class ListBoxEventHandlers {
     ; Store a reference to the ListBox control.
     this.listBox := listBox
     ; Add the OnSelChange event handler, which is triggered when a different item is selected in the ListBox.
-    this.listBox.OnEvent("Change", this.SubmitSelectedItem)
+    this.listBox.OnEvent("DoubleClick", this.SubmitSelectedItem)
     ; Initialize the selected index to -1.
     this.selectedIndex := -1
     return this
