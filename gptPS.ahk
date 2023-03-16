@@ -11,8 +11,9 @@
 
 ; Creates a GUI
 global myGui := Gui("+AlwaysOnTop", "GPT Phrase Select")
-myGui.SetFont("S11")
+myGui.SetFont("S12")
 global myGuiTabs := []
+myGui.OnEvent("Close", myGui_Close)
 
 keycat := []
 for key in categories {
@@ -30,6 +31,37 @@ for key, value in categories {
 
 global isListBoxesShown := false
 
+; Set the focus to the ListBox of the active tab
+SetFocusToActiveListBox() {
+    global myGuiTabs, tabControl
+    activeTabIndex := tabControl.Value
+    activeTab := myGuiTabs[activeTabIndex]
+    activeTab.listBox.Focus()
+}
+
+; Close event handler
+myGui_Close(thisGui) {
+    ; Disable the Escape and Enter hotkeys when the window is closed
+    Hotkey "Esc", "Off"
+    Hotkey "Enter", "Off"
+
+    ; Hide the GUI temporarily
+    thisGui.Hide()
+
+    ; Show a confirmation prompt
+    result := MsgBox("Are you sure you want to close GPT Phrase Select?",, "y/n")
+
+    ; If the user selects "No", show the GUI again and do not exit the script
+    if (result = "No") {
+        thisGui.Show()
+        return true  ; true = 1
+    }
+
+    ; Exit the script if the user selects "Yes"
+    ExitApp
+}
+
+
 ; Show the GUI and enable the Escape and Enter hotkeys
 ShowPhraseSelector() {
     global myGui, isListBoxesShown
@@ -38,6 +70,8 @@ ShowPhraseSelector() {
     Hotkey "Esc", "On"
     Hotkey "Enter", "On"
     isListBoxesShown := true
+    ; Set the focus to the ListBox of the active tab
+    SetFocusToActiveListBox()
 }
 
 ; Close the GUI and disable the Escape and Enter hotkeys
