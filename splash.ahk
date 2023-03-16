@@ -47,7 +47,7 @@ global splashGui := Gui("+AlwaysOnTop -Caption", "GPT Phrase Select")
 
 ShowSplashScreen(message, duration) {
     splashGui.AddPicture("w300 h-1","GPTPSICON.png")
-    splashGui.SetFont("bold S14","Consolas")
+    splashGui.SetFont("bold S13","Consolas")
     splashGui.Add("Text","W300 Center", message)
     splashGui.Add("Text","R2","")
     splashGui.Show("NoActivate")
