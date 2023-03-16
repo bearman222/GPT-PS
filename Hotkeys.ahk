@@ -3,10 +3,9 @@
 ; Author: B. Eskind
 ; Date: March 10, 2023
 
-; #Include ListBoxEventHandlers.ahk
 #Include gptPS.ahk
 
 ; Define the hotkeys to toggle the ListBox
 ^+l::TogglePhraseSelector()
-
 Esc::ClosePhraseSelector()
+Enter::PressEnter()
