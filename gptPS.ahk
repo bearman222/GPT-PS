@@ -26,7 +26,7 @@ OpenOrShowPhraseSelector() {
     CreatePhraseSelectorGui(categories)
 
     ; Show the GUI, set focus and enable the Escape and Enter hotkeys
-    myGui.Show("AutoSize")
+    myGui.Show("Restore")
     SetFocusToActiveListBox()
     EnableHotkeys("On")
 
@@ -54,6 +54,23 @@ CreatePhraseSelectorGui(categories) {
         newTab := CategoryTab(myGui, value)
         myGuiTabs.Push(newTab)
     }
+    ; Register the Close event handler for the GUI
+    myGui.OnEvent("Close", GuiClose)
+}
+
+; Close event handler for the GUI
+GuiClose(thisGui) {
+    ; Show a confirmation prompt before closing the GUI
+    if (MsgBox("Are you sure you want to close GPT Phrase Select?","Close gptPS?", "y/n 0x40000") = "No") {
+        ; If the user selects "No", cancel the close event and show the GUI again
+        thisGui.CancelClose := true
+        OpenOrShowPhraseSelector()
+        return true  ; true = 1
+    }
+
+    ; Disable the Escape and Enter hotkeys and set the ListBox flag to false
+    EnableHotkeys("Off")
+    isListBoxesShown := false
 }
 
 ; Toggle the GUI
@@ -69,7 +86,7 @@ TogglePhraseSelector() {
 ; Close the GUI and disable the Escape and Enter hotkeys
 ClosePhraseSelector() {
     global myGui, isListBoxesShown
-    myGui.Hide()
+    myGui.Show("Hide")  
     ; Disable the Escape and Enter hotkeys
     EnableHotkeys("Off")
     isListBoxesShown := false
@@ -81,25 +98,6 @@ SetFocusToActiveListBox() {
     activeTabIndex := tabControl.Value
     activeTab := myGuiTabs[activeTabIndex]
     activeTab.listBox.Focus()
-}
-
-; Close event handler
-myGui_Close() {
-    ; Disable the Escape and Enter hotkeys
-    EnableHotkeys('Off')
-
-    ; Show a confirmation prompt
-    result := MsgBox("Are you sure you want to close GPT Phrase Select?",, "y/n")
-
-    ; If the user selects "No", show the GUI again and do not exit the script
-    if (result = "No") {
-        OpenOrShowPhraseSelector()
-        return true  ; true = 1
-    }
-
-    ; Close the GUI and exit the script if the user selects "Yes"
-    ClosePhraseSelector()
-    ExitApp
 }
 
 PressEnter() {
