@@ -91,3 +91,7 @@ Support for AutoHotkey v2 and later.
 Version 1.0.1
 - added splash screen and icon
 - compiled executable
+
+Version 1.1.0
+- fixed major bug with interface not closing and leaving hotkeys on.
+- updated all files with version/copyright
