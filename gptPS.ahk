@@ -1,13 +1,29 @@
-; File: gptPS.ahk
-; Description: This file contains the main script for the GPT Phrase Selector application, which creates a GUI to manage categories and listboxes and includes event handlers for user interactions.
-; Author: B. Eskind
+/*
+<!#CR>
+************************************************************************************************************************
+*                                               ByteForge Copyright ©                                                  *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          Company Name     > ByteForge                                                                                *
+*          Company Email    > admin@byteforge.app                                                                      *
+*          Company Websites > http://www.byteforge.app                                                                 *
+* -------------------------------------------------------------------------------------------------------------------- *
+*                                           File and License Informations                                              *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          File Name        > <!#FN> gptPS.ahk </#FN>                                                                  
+*          License          > <!#LT> BSD-3-Clause-Attribution </#LT>                                                   
+*                             <!#LU> https://spdx.org/licenses/BSD-3-Clause-Attribution.html </#LU>                    
+*                             <!#LD> This file may not be redistributed in whole or significant part. </#LD>           
+*          File Version     > <!#FV> 1.0.0 </#FV>                                                                      
+*                                                                                                                      *
+******************************************* VSCode Extension: Version Boss *********************************************
+</#CR>
+*/
 
 #SingleInstance Force
 #Include splash.ahk
 #Include categories.ahk
 #Include Hotkeys.ahk
 #Include CategoryTab.ahk
-; #Include ListBoxEventHandlers.ahk
 
 ; Creates a GUI
 global myGui := Gui("+AlwaysOnTop", "GPT Phrase Select")
