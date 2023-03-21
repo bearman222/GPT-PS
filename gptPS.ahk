@@ -7,32 +7,26 @@
 #Include categories.ahk
 #Include Hotkeys.ahk
 #Include CategoryTab.ahk
+Persistent
+OnExit ExitHandler ; register the function with the OnExit command
+
+ExitHandler(ExitReason, ExitCode) {
+    ; MsgBox("Script is exiting. Reason: " . ExitReason . ", Code: " . ExitCode)
+    EnableHotkeys("Off")
+}
 
 global myGui, myGuiTabs, tabControl, isListBoxesShown := true
+
 
 ; Initialize the application with dependencies
 Initialize(categories) {
     global myGui, myGuiTabs, tabControl, isListBoxesShown := true
+    EnableHotkeys("Off")
     ShowSplashScreen()
     ; Delay the execution of OpenOrShowPhraseSelector() until the splash screen disappears
     SetTimer OpenOrShowPhraseSelector, -2500
 }
 
-; Open or show the Phrase Selector GUI
-OpenOrShowPhraseSelector() {
-    global myGui, isListBoxesShown
-
-    ; Create a new GUI instance
-    CreatePhraseSelectorGui(categories)
-
-    ; Show the GUI, set focus and enable the Escape and Enter hotkeys
-    myGui.Show("Restore")
-    SetFocusToActiveListBox()
-    EnableHotkeys("On")
-
-    ; Set the flag to indicate that the ListBox is shown
-    isListBoxesShown := true
-}
 
 ; Create the GUI with the tab control and tabs
 CreatePhraseSelectorGui(categories) {
@@ -58,8 +52,49 @@ CreatePhraseSelectorGui(categories) {
     myGui.OnEvent("Close", GuiClose)
 }
 
+
+; Open or show the Phrase Selector GUI
+OpenOrShowPhraseSelector() {
+    global myGui, isListBoxesShown
+
+    ; Create a new GUI instance
+    CreatePhraseSelectorGui(categories)
+
+    ; Show the GUI, set focus and enable the Escape and Enter hotkeys
+    myGui.Show("Restore")
+    SetFocusToActiveListBox()
+    EnableHotkeys("On")
+
+    ; Set the flag to indicate that the ListBox is shown
+    isListBoxesShown := true
+}
+
+
+; Close the GUI and disable the Escape and Enter hotkeys
+ClosePhraseSelector() {
+    global myGui, isListBoxesShown
+    myGui.Show("Hide")
+    ; Disable the Escape and Enter hotkeys
+    EnableHotkeys("Off")
+    isListBoxesShown := false
+}
+
+
+; Toggle the GUI
+TogglePhraseSelector() {
+    global isListBoxesShown
+    if (!isListBoxesShown) {
+        OpenOrShowPhraseSelector()
+    } else {
+        ClosePhraseSelector()
+    }
+}
+
+
 ; Close event handler for the GUI
 GuiClose(thisGui) {
+    ; Hide the gui window so it doesn't block the msgbox due to z-order
+    ClosePhraseSelector()
     ; Show a confirmation prompt before closing the GUI
     if (MsgBox("Are you sure you want to close GPT Phrase Select?","Close gptPS?", "y/n 0x40000") = "No") {
         ; If the user selects "No", cancel the close event and show the GUI again
@@ -67,30 +102,10 @@ GuiClose(thisGui) {
         OpenOrShowPhraseSelector()
         return true  ; true = 1
     }
-
-    ; Disable the Escape and Enter hotkeys and set the ListBox flag to false
-    EnableHotkeys("Off")
-    isListBoxesShown := false
+    ; The user selected to close the app
+    ExitApp
 }
 
-; Toggle the GUI
-TogglePhraseSelector() {
-    global isListBoxesShown
-    if (!isListBoxesShown) { 
-        OpenOrShowPhraseSelector()
-    } else {
-        ClosePhraseSelector()
-    }
-}
-
-; Close the GUI and disable the Escape and Enter hotkeys
-ClosePhraseSelector() {
-    global myGui, isListBoxesShown
-    myGui.Show("Hide")  
-    ; Disable the Escape and Enter hotkeys
-    EnableHotkeys("Off")
-    isListBoxesShown := false
-}
 
 ; Set the focus to the ListBox of the active tab
 SetFocusToActiveListBox() {
@@ -100,12 +115,14 @@ SetFocusToActiveListBox() {
     activeTab.listBox.Focus()
 }
 
+
 PressEnter() {
     global myGuiTabs, tabControl
     activeTabIndex := tabControl.Value
     activeTab := myGuiTabs[activeTabIndex]
     activeTab.OnEnterPress()
 }
+
 
 EnableHotkeys(state := "On") {
     if (state != "On" && state != "Off") {
