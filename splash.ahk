@@ -1,6 +1,27 @@
+/*
+<!#CR>
+************************************************************************************************************************
+*                                               ByteForge Copyright ©                                                  *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          Company Name     > ByteForge                                                                                *
+*          Company Email    > admin@byteforge.app                                                                      *
+*          Company Websites > http://www.byteforge.app                                                                 *
+* -------------------------------------------------------------------------------------------------------------------- *
+*                                           File and License Informations                                              *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          File Name        > <!#FN> splash.ahk </#FN>                                                                 
+*          License          > <!#LT> BSD-3-Clause-Attribution </#LT>                                                   
+*                             <!#LU> https://spdx.org/licenses/BSD-3-Clause-Attribution.html </#LU>                    
+*                             <!#LD> This file may not be redistributed in whole or significant part. </#LD>           
+*          File Version     > <!#FV> 1.1.0 </#FV>                                                                      
+*                                                                                                                      *
+******************************************* VSCode Extension: Version Boss *********************************************
+</#CR>
+*/
+
+
 global splashquote := ["The AI that codes like a boss.",
 "Wake up and code with the ultimate coding assistant.",
-"Your coding genie in a bottle.",
 "Because coding alone is overrated.",
 "Making coding cool again.",
 "Code smarter, not harder.",
@@ -56,6 +77,7 @@ global splashquote := ["The AI that codes like a boss.",
 "Code like a champion with AI by your side.",
 "The AI that brings coding dreams to life.",
 "Empower your coding creativity with AI.",
+"Your coding genie in a bottle.",
 "We help you code better, faster, and smarter with AI.",
 "Transforming coding from a chore to a pleasure.",
 "Revolutionize your coding game with AI.",
@@ -71,18 +93,16 @@ global splashquote := ["The AI that codes like a boss.",
 
 global splashGui := Gui("+AlwaysOnTop -Caption", "GPT Phrase Select")
 
-ShowSplashScreen(message, duration) {
+ShowSplashScreen() {
     splashGui.AddPicture("w300 h-1","GPTPSICON.png")
     splashGui.SetFont("bold S13","Consolas")
-    splashGui.Add("Text","W300 Center", message)
+    splashGui.Add("Text","W300 Center", splashquote[Random(1,splashquote.Length)])
     splashGui.Add("Text","R2","")
     splashGui.Show("NoActivate")
     splashGui.Restore()
-    SetTimer(SplashTimerFunc, duration*1000)
+    SetTimer(SplashTimerFunc, -2500)
 }
 
 SplashTimerFunc() {
     splashGui.Destroy()
 }
-
-ShowSplashScreen(splashquote[Random(1,splashquote.Length)], 2.5)

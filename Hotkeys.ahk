@@ -1,7 +1,23 @@
-; File: Hotkeys.ahk
-; Description: This script defines hotkeys for a GUI that lets users select phrases, and toggles the GUI with Ctrl+Shift+L.
-; Author: B. Eskind
-; Date: March 10, 2023
+/*
+<!#CR>
+************************************************************************************************************************
+*                                               ByteForge Copyright ©                                                  *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          Company Name     > ByteForge                                                                                *
+*          Company Email    > admin@byteforge.app                                                                      *
+*          Company Websites > http://www.byteforge.app                                                                 *
+* -------------------------------------------------------------------------------------------------------------------- *
+*                                           File and License Informations                                              *
+* -------------------------------------------------------------------------------------------------------------------- *
+*          File Name        > <!#FN> Hotkeys.ahk </#FN>                                                                
+*          License          > <!#LT> BSD-3-Clause-Attribution </#LT>                                                   
+*                             <!#LU> https://spdx.org/licenses/BSD-3-Clause-Attribution.html </#LU>                    
+*                             <!#LD> This file may not be redistributed in whole or significant part. </#LD>           
+*          File Version     > <!#FV> 1.1.0 </#FV>                                                                      
+*                                                                                                                      *
+******************************************* VSCode Extension: Version Boss *********************************************
+</#CR>
+*/
 
 #Include gptPS.ahk
 
