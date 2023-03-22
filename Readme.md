@@ -1,3 +1,12 @@
+<p class='words mywords' data-type-words="One phrase, another, then some more, that's all">This will be replaced by the first phrase</p>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src='wordTypeErase.js'></script>
+<script>
+    $('.mywords').wordTypeErase(); 
+</script>
+
+
 # GPT Phrase Selector
 
 GPT Phrase Selector (GPT PS) is an AutoHotkey 2.0+ script that provides a user with a catalogue of pre-built lists of helpful input phrases. The user can select the phrases they need from the list and use them in their work.
