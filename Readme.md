@@ -1,106 +1,45 @@
-<p class='words mywords' data-type-words="One phrase, another, then some more, that's all">This will be replaced by the first phrase</p>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src='wordTypeErase.js'></script>
-<script>
-    $('.mywords').wordTypeErase(); 
-</script>
-
-
 # GPT Phrase Selector
+![Animated GIF](https://media2.giphy.com/media/18GrHJAgEPD4dKWfmf/giphy.gif "Animated GIF")
 
-GPT Phrase Selector (GPT PS) is an AutoHotkey 2.0+ script that provides a user with a catalogue of pre-built lists of helpful input phrases. The user can select the phrases they need from the list and use them in their work.
+The GPT Phrase Selector is a powerful tool that helps developers improve their workflow by providing pre-built lists of helpful input phrases. Here are some instructions and features that can help you get started with GPT Phrase Selector:
 
 ## Getting Started
 
-To get started, you need to have AutoHotkey 2.0+ installed on your machine. You can download and install AutoHotkey 2.0+ from the official website.
-
-Once you have AutoHotkey 2.0+ installed, you can download the GPT Phrase Selector script from the Github repository. You can run the script by double-clicking the file.
-
-The default hotkey to show the window with the phrase lists is Ctrl+Shift+L. If you want to change the hotkey, you can edit the hotkeys.ahk file.
+1. Install AutoHotkey 2.0+ on your machine.
+2. Download the GPT Phrase Selector script from the [Github repository](https://github.com/bearman222/GPT-PS/).
+3. Run the script by double-clicking the file.
+4. The default hotkey to show the window with the phrase lists is Ctrl+Shift+L. If you want to change the hotkey, you can edit the hotkeys.ahk file.
 
 ## How to Use
 
-When you press the hotkey to show the window, you will see a few tabs. Each tab contains a list of phrases related to a specific topic. You can select the phrases you need by clicking on them.
-
-The selected phrase will be copied to your clipboard automatically. You can then paste the phrase into your document or text editor.
+1. Press the hotkey to show the window.
+2. You will see a few tabs with lists of phrases related to specific topics.
+3. Click on the phrases you need to select them.
+4. The selected phrase will be copied to your clipboard automatically.
+5. Paste the phrase into your document or text editor.
 
 ## Phrase Lists
 
-GPT PS provides the following phrase lists:
+GPT PS provides pre-built lists of phrases related to four important development-related tasks: implementation, structure, performance, and security. These lists contain concise and clear phrases that can help you streamline your workflow.
 
-### IMPLEMENTATION
+Some examples of useful phrases include:
 
 - Provide a simple example.
 - Use descriptive naming conventions.
-- Develop unit tests for the code.
-- Implement a debug logging.
-- Refactor code for readability.
-- Add documentation and comments.
-- Suggest additional features.
-- Finish the example, start from ...
-- Keep functions short and focused.
-- Follow style guidelines consistently.
-
-### STRUCTURE
-
-- Ensure code is modular and reusable.
-- Simplify complex logic.
-- Refactor repeated code.
-- Separate business logic from presentation.
-- Modularize the code.
-- Refactor for scalability.
-- Use design patterns appropriately.
 - Improve error handling.
-- Implement dependency injection.
-
-### PERFORMANCE
-
-- Improve performance.
-- Reduce memory usage.
-- Minimize resource usage where possible.
-- Reuse objects instead of creating new ones.
-- Optimize algorithms.
-- Use caching.
-- Optimize queries and calls.
-- Implement database indexing.
-
-### SECURITY
-
-- Implement secure software design principles.
-- Sanitize user input to prevent SQL injection.
-- Implement secure communication protocols.
 - Implement secure authentication mechanisms.
-- Implement secure data storage and transmission.
-- Implement secure session management.
-- Use libraries with a good security track record.
-- Encrypt sensitive data in transit and storage.
-
-These phrases cover a wide range of important development-related tasks and are clear and concise, making them easy for users to understand and implement in their work.
+- Reduce memory usage.
+- Optimize algorithms.
+- Implement database indexing.
 
 ## Contributing
 
-If you have any suggestions or ideas for improving GPT Phrase Selector, please feel free to create a pull request on Github.
+If you have any suggestions or ideas for improving GPT Phrase Selector, you can create a pull request on [GitHub](https://github.com/bearman222/GPT-PS/).
 
 ## License
 
-GPT Phrase Selector is licensed under the MIT License. See the [LICENSE](https://github.com/example/GPT-Phrase-Selector/blob/main/LICENSE) file for details.
+GPT Phrase Selector is licensed under the [MIT License](https://mit-license.org/). See the LICENSE file for details.
 
-## AI and Development Workflow
+## Conclusion
 
-If you're a developer who's interested in using artificial intelligence to enhance your workflow, you might find the GPT Phrase Selector to be a useful tool. Whether you're using ChatGPT or other AI tools to assist with your work, the GPT Phrase Selector can help you streamline your development process and increase your productivity. Give it a try and see how it can improve your workflow today!
-
-### Version
-Version 1.0.0
-- Initial release with phrase lists for implementation, structure, performance, and security.
-- Hotkey to show the phrase selection window is Ctrl+Shift+L.
-- Phrases are copied to clipboard automatically when selected.
-Support for AutoHotkey v2 and later.
-
-Version 1.0.1
-- added splash screen and icon
-- compiled executable
-
-Version 1.1.0
-- fixed major bug with interface not closing and leaving hotkeys on.
-- updated all files with version/copyright
+GPT Phrase Selector can help developers streamline their workflow by providing pre-built lists of helpful input phrases. It can be especially useful for those interested in using artificial intelligence to enhance their development process. Give it a try and see how it can improve your workflow today!
