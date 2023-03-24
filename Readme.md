@@ -1,26 +1,36 @@
 # GPT Phrase Selector
 ![Animated GIF](https://media2.giphy.com/media/18GrHJAgEPD4dKWfmf/giphy.gif "Animated GIF")
 
-The GPT Phrase Selector is a powerful tool that helps developers improve their workflow by providing pre-built lists of helpful input phrases. Here are some instructions and features that can help you get started with GPT Phrase Selector:
+The GPT Phrase Selector is a useful tool for developers who want to improve their workflow by using pre-built lists of input phrases. Here are some instructions and features that can help you get started with GPT Phrase Selector:
 
 ## Getting Started
 
-1. Install AutoHotkey 2.0+ on your machine.
-2. Download the GPT Phrase Selector script from the [Github repository](https://github.com/bearman222/GPT-PS/).
-3. Run the script by double-clicking the file.
-4. The default hotkey to show the window with the phrase lists is Ctrl+Shift+L. If you want to change the hotkey, you can edit the hotkeys.ahk file.
+### For Windows users: 
+* Simply download the gptPS.exe file and double-click on the executable to launch it. 
+* You'll see a splash screen; press Ctrl+Shift+L to open the interface. 
+* Double-click on the phrase you want to insert, and it will be copied to the clipboard and pasted into your last active window.
+
+### For Tinkerers: 
+(if you want to customize the categories or contribute), follow these steps:
+
+* Install AutoHotkey 2.0+ on your machine.
+* Download the GPT Phrase Selector script from the [Github repository](https://github.com/bearman222/GPT-PS/).
+* Run the script by double-clicking the file.
+* The default hotkey to show the window with the phrase lists is Ctrl+Shift+L. If you want to change the hotkey, you can edit the hotkeys.ahk file.
 
 ## How to Use
 
+To use GPT Phrase Selector, follow these steps:
+
 1. Press the hotkey to show the window.
-2. You will see a few tabs with lists of phrases related to specific topics.
+2. You will see tabs with lists of phrases related to specific topics.
 3. Click on the phrases you need to select them.
 4. The selected phrase will be copied to your clipboard automatically.
 5. Paste the phrase into your document or text editor.
 
 ## Phrase Lists
 
-GPT PS provides pre-built lists of phrases related to four important development-related tasks: implementation, structure, performance, and security. These lists contain concise and clear phrases that can help you streamline your workflow.
+GPT Phrase Selector provides pre-built lists of phrases related to four important development-related tasks: implementation, structure, performance, and security. These lists contain concise and clear phrases that can help you streamline your workflow.
 
 Some examples of useful phrases include:
 
