@@ -13,7 +13,7 @@
 *          License          > <!#LT> BSD-3-Clause-Attribution </#LT>                                                   
 *                             <!#LU> https://spdx.org/licenses/BSD-3-Clause-Attribution.html </#LU>                    
 *                             <!#LD> This file may not be redistributed in whole or significant part. </#LD>           
-*          File Version     > <!#FV> 1.1.0 </#FV>                                                                      
+*          File Version     > <!#FV> 1.1.1 </#FV>                                                                      
 *                                                                                                                      *
 ******************************************* VSCode Extension: Version Boss *********************************************
 </#CR>
@@ -32,12 +32,11 @@ ExitHandler(ExitReason, ExitCode) {
     EnableHotkeys("Off")
 }
 
-global myGui, myGuiTabs, tabControl, isListBoxesShown := true
+global myGui, myGuiTabs, tabControl, isListBoxesShown := false
 
 
 ; Initialize the application with dependencies
 Initialize(categories) {
-    global myGui, myGuiTabs, tabControl, isListBoxesShown := true
     EnableHotkeys("Off")
     ShowSplashScreen()
     ; Delay the execution of OpenOrShowPhraseSelector() until the splash screen disappears
@@ -67,6 +66,7 @@ CreatePhraseSelectorGui(categories) {
     }
     ; Register the Close event handler for the GUI
     myGui.OnEvent("Close", GuiClose)
+    myGui.onevent('size', gui_size)
 }
 
 
@@ -79,25 +79,23 @@ OpenOrShowPhraseSelector() {
 
     ; Show the GUI, set focus and enable the Escape and Enter hotkeys
     myGui.Show("Restore")
+    isListBoxesShown := true
     SetFocusToActiveListBox()
     EnableHotkeys("On")
-
-    ; Set the flag to indicate that the ListBox is shown
-    isListBoxesShown := true
 }
 
 
-; Close the GUI and disable the Escape and Enter hotkeys
+; Close the Phrase Selector GUI
 ClosePhraseSelector() {
     global myGui, isListBoxesShown
     myGui.Show("Hide")
-    ; Disable the Escape and Enter hotkeys
-    EnableHotkeys("Off")
     isListBoxesShown := false
+    EnableHotkeys("Off")
+
 }
 
 
-; Toggle the GUI
+; Toggle the phrase selector GUI
 TogglePhraseSelector() {
     global isListBoxesShown
     if (!isListBoxesShown) {
@@ -108,7 +106,18 @@ TogglePhraseSelector() {
 }
 
 
-; Close event handler for the GUI
+; GUI Event handler for minimize, maximize, change size event
+Gui_Size(GuiObj, MinMax, Width, Height) {
+    ; interrupt other threads to ensure the resize event is handled correctly
+    Critical "Off"
+    Sleep -1
+    if (MinMax == -1) {
+        ClosePhraseSelector()
+    }
+}
+
+
+; Terminate gptPS Script and close
 GuiClose(thisGui) {
     ; Hide the gui window so it doesn't block the msgbox due to z-order
     ClosePhraseSelector()
